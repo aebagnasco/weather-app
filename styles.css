@@ -1,0 +1,83 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 38px;
+  line-height: 28.8px;
+  color: #2f2e41;
+  margin: 1;
+}
+
+ul {
+  margin: 0 0 10;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.weather-app {
+  border: 1px solid #c8c9ca;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+#temp {
+  color: #2f2e41;
+  font-size: 52px;
+  line-height: 1;
+}
+
+.units {
+  position: relative;
+  top: -25px;
+}
+
+#iconmain {
+  font-size: 40px;
+  color: #2f2e41;
+  margin-right: 10px;
+}
+
+.fa-cloud-sun,
+.fa-cloud-showers-heavy,
+.fa-cloud,
+.fa-sun,
+.fa-wind,
+.fa-smog,
+.fa-umbrella-beach {
+  color: #2f2e41;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+h2 {
+  text-align: left;
+}
+
+.container2 {
+  text-align: center;
+}
