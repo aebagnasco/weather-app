@@ -13,7 +13,7 @@ let days = [
 let currentDay = days[now.getDay()];
 let currentHour = now.getHours();
 let currentMinutes = now.getMinutes();
-let list = document.querySelector("#condition");
+let list = document.querySelector("#currenttime");
 list.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 
 function displayTemp(response) {
