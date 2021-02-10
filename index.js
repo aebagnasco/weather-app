@@ -30,7 +30,9 @@ function displayTemp(response) {
   );
   document.querySelector("#condition").innerHTML = response.data.weather[0].main;
   let iconElement = document.querySelector("#iconmain");
-  iconElement.innerHTML = `http://openweathermap.org/img/wn/04d@2x.png`;
+  iconElement.setAttribute(
+    "src", 
+    `http://openweathermap.org/img/wn/04d@2x.png`);
   // can console log response.data to find where ^ humidity, wind, temp is located
 }
 
