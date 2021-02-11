@@ -16,6 +16,23 @@ let currentMinutes = now.getMinutes();
 let list = document.querySelector("#currenttime");
 list.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 
+
+
+function formatHours(timestamp) {
+  let time = new Date(timestamp);
+  let hours = time.getHours();
+  if(hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = time.getMinutes();
+  if(minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
+
+
 function displayTemp(response) {
   document.querySelector("#city").innerHTML = 
   response.data.name;
@@ -37,6 +54,30 @@ function displayTemp(response) {
   // can console log response.data to find where ^ humidity, wind, temp is located
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  // this resets the forecast each time so we can start from scratch 
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `<div class="col-2">
+                            <h3>${formatHours(forecast.dt * 1000)}</h3>
+                            <img 
+                            src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
+                            <div class="weather-forecast-temperature">
+                                <strong>${Math.round(forecast.main.temp_max)}&deg;</strong> ${Math.round(forecast.main.temp_min)}&deg;
+                            </div>
+                        </div>
+                        `;
+  }
+  
+// for loop allows you to repeat something multiple times 
+// index tracks the current value of the 0 that is incremented one by one 
+
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   let apiKey = "216598f817e9e34d672a7a0c88bebdfa";
@@ -50,6 +91,9 @@ function handleSubmit(event) {
   axios.get(apiUrl).then(displayTemp);
   // make an API call to OpenWeather API
   // once I get the http response, we display the city name and the temperature
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let form = document.querySelector("#search-form");
