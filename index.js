@@ -100,6 +100,7 @@ let form = document.querySelector("#search-form");
 // this takes control over the form and changes the control to js and not html 
 form.addEventListener("submit", handleSubmit);
 
+
 function showPosition(position) {
   let apiKey = "216598f817e9e34d672a7a0c88bebdfa";
   let lat = position.coords.latitude;
@@ -107,7 +108,11 @@ function showPosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
   axios.get(url).then(displayTemp);
   // ^ exact same response because the api gives us back the same object structure (it will use the same API doc)
+ url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+  axios.get(url).then(displayForecast);
 }
+
+
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }

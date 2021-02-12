@@ -87,3 +87,7 @@ small {
 .units a {
   text-decoration: none;
 }
+
+.forecasticon {
+  font-size: 1em;
+}
